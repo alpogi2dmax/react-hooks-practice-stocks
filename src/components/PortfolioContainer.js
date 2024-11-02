@@ -1,13 +1,18 @@
 import React from "react";
-import Stock from "./Stock";
+import MyPortfolio from "./MyPortfolio";
 
-function PortfolioContainer() {
+function PortfolioContainer({portfolioStocks, onDeletePortfolio}) {
+
+  console.log(portfolioStocks)
+
+
   return (
     <div>
       <h2>My Portfolio</h2>
-      {
-        //render your portfolio stocks here
-      }
+      {portfolioStocks.map(portfolio =>
+        <MyPortfolio key={portfolio.id} portfolio={portfolio} onDeletePortfolio={onDeletePortfolio}/>
+      )}
+      
     </div>
   );
 }
